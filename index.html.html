@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+    <title>Happy Birthday!</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f28aaa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 30px 20px;
+        }
+
+        /* CAKE */
+        .cake-area {
+            position: relative;
+            width: 300px;
+            height: 250px;
+            margin: 0 auto;
+        }
+
+        .cake {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 110px;
+            background: #9b604d;
+            border-radius: 8px 8px 15px 15px;
+            box-shadow: inset 0 -12px rgba(80, 40, 30, 0.15);
+        }
+
+        .cake::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 35px;
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.12);
+        }
+
+        .cake::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 70px;
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.12);
+        }
+
+        /* ICING */
+        .icing {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 230px;
+            height: 45px;
+            background: #fffdf2;
+            border-radius: 20px 20px 8px 8px;
+            z-index: 2;
+        }
+
+        .icing::before {
+            content: "";
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            width: 14px;
+            height: 35px;
+            background: #fffdf2;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .icing::after {
+            content: "";
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 14px;
+            height: 40px;
+            background: #fffdf2;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* PLATE */
+        .plate {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            height: 6px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        /* CANDLE */
+        .candle {
+            position: absolute;
+            z-index: 5;
+            bottom: 140px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 65px;
+            background: repeating-linear-gradient(
+                to bottom,
+                #fff 0px,
+                #fff 10px,
+                #f3a2b9 10px,
+                #f3a2b9 20px
+            );
+            border-radius: 5px;
+        }
+
+        /* FLAME */
+        .flame {
+            position: absolute;
+            bottom: 205px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 28px;
+            background: #ffd447;
+            border-radius: 50% 50% 50% 50%;
+            z-index: 6;
+            animation: flicker 0.6s infinite alternate;
+            box-shadow:
+                0 0 10px #ffd447,
+                0 0 20px #ffb300;
+        }
+
+        @keyframes flicker {
+            0% {
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(-50%) scale(0.8) rotate(3deg);
+                opacity: 0.75;
+            }
+        }
+
+        /* TEXT */
+        .title {
+            margin-top: 5px;
+            color: #8c4b59;
+            font-size: 45px;
+            font-weight: bold;
+            font-family: cursive;
+            animation: appear 1.5s ease;
+        }
+
+        .message {
+            margin-top: 20px;
+            color: #75434d;
+            font-size: 18px;
+            line-height: 1.7;
+            animation: appear 2s ease;
+        }
+
+        .name {
+            margin-top: 18px;
+            color: #75434d;
+            font-size: 22px;
+            font-family: cursive;
+            font-weight: bold;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* HEARTS */
+        .heart {
+            position: absolute;
+            color: white;
+            font-size: 25px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .heart1 {
+            top: 70px;
+            left: 20%;
+        }
+
+        .heart2 {
+            top: 100px;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* BUTTON */
+        button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: #fff;
+            color: #8c4b59;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            background: #ffe8ef;
+        }
+
+        /* MOBILE */
+        @media (max-width: 500px) {
+
+            .cake-area {
+                transform: scale(0.85);
+                margin-bottom: -20px;
+            }
+
+            .title {
+                font-size: 36px;
+            }
+
+            .message {
+                font-size: 16px;
+            }
+
+            .heart1 {
+                left: 8%;
+            }
+
+            .heart2 {
+                right: 8%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEARTS -->
+        <div class="heart heart1">♡</div>
+        <div class="heart heart2">♡</div>
+
+        <!-- CAKE -->
+        <div class="cake-area">
+
+            <div class="flame"></div>
+
+            <div class="candle"></div>
+
+            <div class="cake">
+                <div class="icing"></div>
+            </div>
+
+            <div class="plate"></div>
+
+        </div>
+
+        <!-- BIRTHDAY TEXT -->
+        <h1 class="title">
+            Happy Birthday!
+        </h1>
+
+        <p class="message">
+            May your special day be filled with happiness,
+            good health, love, and beautiful memories.
+            <br>
+            May all your wishes come true! 🎂✨
+        </p>
+
+        <p class="name">
+            — Lovie ♡
+        </p>
+
+        <button onclick="makeWish()">
+            🎂 Make a Wish
+        </button>
+
+    </div>
+
+    <script>
+        function makeWish() {
+            alert("✨ Make a wish! Happy Birthday! 🎂💗");
+        }
+    </script>
+
+</body>
+</html>
